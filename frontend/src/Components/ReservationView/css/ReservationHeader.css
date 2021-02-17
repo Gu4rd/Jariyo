@@ -1,0 +1,98 @@
+.Reservation_header{
+    background: linear-gradient(90deg, rgb(248, 131, 77) 0%, rgb(248, 131, 77) 100%);
+    top: 80px;
+    height: 180px;
+    display: flex;
+    font-size: 1.2rem;
+}
+
+.products_frame{
+    width: auto;
+    height: 51px;
+    position: relative;
+    top: 8%;
+    left: 17%;
+}
+
+.products{
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+}
+
+
+.productsDropDown{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 8px 8px 16px 8px rgba(0,0,0,0.4);
+    z-index: 1;
+}
+
+.productsDropDown :hover{
+    background-color: white;
+    color: red;
+}
+
+.productsDropDown :hover .products{
+    color: red;
+}
+
+.productsDropDownMenu{
+    color: black;
+    padding: 6px 0px;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+}
+.products :hover .productsDropDown{
+    display: block;
+}
+
+.locations_frame{
+    width: auto;
+    height: 30px;
+    position: relative;
+    top: 80%;
+    left: 60%;
+}
+
+.locations{
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+}
+
+.locationsDropDown{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 150px;
+    box-shadow: 8px 8px 16px 8px rgba(0,0,0,0.4);
+    z-index: 1;
+}
+
+.locationsDropDown :hover{
+    background-color: white;
+    color: red;
+}
+
+.locationsDropDown :hover .locations{
+    color: red;
+}
+
+.locationsDropDownMenu{
+    color: black;
+    padding: 6px 0px;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+}
+.locations :hover .locationsDropDown{
+    display: block;
+}

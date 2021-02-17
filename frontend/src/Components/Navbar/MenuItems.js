@@ -6,7 +6,7 @@ export const MenuItems = [
     },
     {
         title:'숙소유형',
-        url:'#product',
+        url:'/reservation/호텔/헤네시스',
         cName:'nav-links'
     },
     {
@@ -22,7 +22,11 @@ export const MenuItems = [
     {
         title:'더 보기',
         url:'#more',
-        cName:'nav-links'
+        cName:'nav-links',
+        more: {
+            title: ['공지사항', '이벤트', 'qna'],
+            url: ['/notice', '/event', '/qna']
+        }
     },
     {
         title:'로그인',

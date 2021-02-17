@@ -11,6 +11,13 @@ class NavBar extends Component {
     this.setState({ clicked : !this.state.clicked})
   }
 
+  moreView() {
+    document.getElementsByClassName("more")[0].style.display = 'block';
+  }
+  moreView2() {
+    document.getElementsByClassName("more")[0].style.display = 'none';
+  }
+
   render() {
     return (
       <nav className="NavbarItems">
@@ -21,10 +28,22 @@ class NavBar extends Component {
         <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
           {MenuItems.map((item, index) => {
             return (
-              <li key={index}>
-                <a className={item.cName} href={item.url}>
-                  {item.title}
-                </a>
+              <li key={index} onMouseOut={this.moreView2}>
+                {item.title == '더 보기'
+                ? <a className={item.cName} href={item.url} onMouseOver={this.moreView}>
+                    {item.title}
+                  </a>
+                : <a className={item.cName} href={item.url}>
+                    {item.title}
+                  </a>
+                }
+                {item.title == '더 보기' &&
+                  <ul className="more" onMouseOver={this.moreView}>
+                  {item.more.title.map((a, idx) =>
+                    <li className="moreList"><a href={item.more.url[idx]} style={{textDecoration: 'none', color: 'white'}}>{a}</a></li>
+                  )}
+                  </ul>
+                }
               </li>
             )
           })}
