@@ -6,7 +6,7 @@ export const MenuItems = [
     },
     {
         title:'숙소유형',
-        url:'#product',
+        url:'/product',
         cName:'nav-links'
     },
     {

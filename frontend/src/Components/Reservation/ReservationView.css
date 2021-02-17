@@ -1,0 +1,9 @@
+.Reservation_header{
+    background: linear-gradient(90deg, rgb(248, 131, 77) 0%, rgb(248, 131, 77) 100%);
+    top: 80px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
