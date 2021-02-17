@@ -6,7 +6,7 @@ export const MenuItems = [
     },
     {
         title:'숙소유형',
-        url:'#product',
+        url:'/reservation/호텔/헤네시스',
         cName:'nav-links'
     },
     {

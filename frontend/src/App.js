@@ -1,24 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar'
+import ReservationHeader from './Components/ReservationView/ReservationHeader';
 function App() {
   return (
     <div className="App">
-      <Navbar/>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Navbar/>
+        <Route path="/reservation/:product/:place" component={ReservationHeader}></Route>
+      </Router>
     </div>
   );
 }
