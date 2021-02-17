@@ -3,7 +3,51 @@
     top: 80px;
     height: 180px;
     display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 1.2rem;
+}
+
+.frame{
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 8%;
+    left: 17%;
+}
+
+.products{
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+}
+
+
+.productsDropDown{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 8px 8px 16px 8px rgba(0,0,0,0.4);
+    z-index: 1;
+}
+
+.productsDropDown :hover{
+    background-color: white;
+    color: red;
+}
+
+.productsDropDown :hover .products{
+    color: red;
+}
+
+.productsDropDownMenu{
+    color: black;
+    padding: 6px 0px;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+}
+.products :hover .productsDropDown{
+    display: block;
 }
