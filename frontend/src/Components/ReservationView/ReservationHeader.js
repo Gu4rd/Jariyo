@@ -1,9 +1,10 @@
 import React, {Component} from "react";
-import './ReservationView.css';
-class ReservationView extends Component{
+import './css/ReservationHeader.css';
+import ReservationBody from "./ReservationBody";
+
+class ReservationHeader extends Component{
 
     render(){
-        console.log(this.props)
         return(
             <div>
                 <div className="Reservation_header">
@@ -39,9 +40,11 @@ class ReservationView extends Component{
                         </a>
                     </h3>
                 </div>
+                <ReservationBody product={this.props.match.params.product} place={this.props.match.params.place} />
             </div>
+            
         )
     }
 }
 
-export default ReservationView;
+export default ReservationHeader;
