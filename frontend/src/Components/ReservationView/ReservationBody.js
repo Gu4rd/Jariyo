@@ -51,7 +51,7 @@ class ReservationBody extends Component{
                     <Grid className="menu_wrap" item xs={4}>
                         <h3 style={{padding: "0px 0px 15px 0px"}}>날짜</h3>
                         <div><button onClick={this.handleClick} className="date_bar">{this.state.now}</button></div>
-                        {this.state.isToggle && <Calendar onChange={this.onChange} style={{minWidth: "270px"}}/>}
+                        {this.state.isToggle && <Calendar onChange={this.onChange}/>}
                         <h3 style={{padding: "50px 0px 15px 0px"}}>상세조건</h3>
                         <div className="control_bar_wrap">
                             <button className="control_bar">적용</button>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -137,7 +137,7 @@ class ReservationBody extends Component{
                         </div>
                     </Grid>
                     <Grid className="item_wrap" item xs={8}>
-                        <div>상품</div>
+                        <div>상품 준비중...</div>
                     </Grid>
                 </Grid>
                 <Grid item xs={2}></Grid>
