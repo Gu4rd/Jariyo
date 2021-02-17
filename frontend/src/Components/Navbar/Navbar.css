@@ -136,3 +136,16 @@
         display: none;
     }
 }
+
+.more {
+    margin-top: 20px;
+    display: none;
+    list-style: none;
+    width: 95px;
+    background-color: #fd9564;
+    border-radius: 4px;
+}
+
+.moreList {
+    margin-bottom: 10px;
+}

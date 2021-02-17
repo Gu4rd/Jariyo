@@ -22,7 +22,11 @@ export const MenuItems = [
     {
         title:'더 보기',
         url:'#more',
-        cName:'nav-links'
+        cName:'nav-links',
+        more: {
+            title: ['공지사항', '이벤트', 'qna'],
+            url: ['/notice', '/event', '/qna']
+        }
     },
     {
         title:'로그인',
