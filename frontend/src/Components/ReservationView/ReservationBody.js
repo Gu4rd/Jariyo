@@ -43,101 +43,120 @@ class ReservationBody extends Component{
         
     };
 
+    reSetOptions(e){
+        window.location.reload();
+    }
+
     render(){
         return(
             <Grid container item>
                 <Grid item xs={2}></Grid>
                 <Grid className="body_wrap" container item xs={8}>
                     <Grid className="menu_wrap" item xs={4}>
-                        <h3 style={{padding: "0px 0px 15px 0px"}}>날짜</h3>
-                        <div><button onClick={this.handleClick} className="date_bar">{this.state.now}</button></div>
-                        {this.state.isToggle && <Calendar onChange={this.onChange}/>}
-                        <h3 style={{padding: "50px 0px 15px 0px"}}>상세조건</h3>
-                        <div className="control_bar_wrap">
-                            <button className="control_bar">적용</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <button className="control_bar" style={{background: "red", color: "white"}}>초기화</button>
-                            <div>
-                                <h4 style={{padding: "50px 0px 15px 0px"}}>인원</h4>
-                                <div className="person">
-                                    <button className="btnUpDown" style={{marginRight: "50px"}} onClick={this.Up}>+</button>
-                                    <span>{this.state.person}</span>
-                                    <button className="btnUpDown" style={{marginLeft: "50px"}} onClick={this.Down}>--</button>
-                                </div>
-                                <h4 style={{padding: "50px 0px 25px 0px"}}>시설</h4>
-                                <div className="facility">
-                                    <ui className="facility_list">
-                                        <li className="facility_item">&nbsp;
-                                            <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <label>수영장</label>
-                                        </li>
-                                        <li className="facility_item">&nbsp;
-                                            <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <label>노래방</label>
-                                        </li>
-                                        <li className="facility_item">&nbsp;
-                                            <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <label>사우나</label>
-                                        </li>
-                                        <li className="facility_item">&nbsp;
-                                            <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <label>테이블</label>
-                                        </li>
-                                        <li className="facility_item">&nbsp;
-                                            <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <label>세탁기</label>
-                                        </li>
-                                        <li className="facility_item">&nbsp;
-                                            <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <label>건조기</label>
-                                        </li>
-                                        <li className="facility_item">&nbsp;
-                                            <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <label>취사가능</label>
-                                        </li>
-                                        <li className="facility_item">&nbsp;
-                                            <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <label>스파</label>
-                                        </li>
-                                        <li className="facility_item">&nbsp;
-                                            <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <label>헬스기구</label>
-                                        </li>
-                                        <li className="facility_item">&nbsp;
-                                            <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <label>온천</label>
-                                        </li>
-                                        <li className="facility_item">&nbsp;
-                                            <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <label>에어컨</label>
-                                        </li>
-                                        <li className="facility_item">&nbsp;
-                                            <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <label>샤워실</label>
-                                        </li>
-                                        <li className="facility_item">&nbsp;
-                                            <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <label>욕조</label>
-                                        </li>
-                                        <li className="facility_item">&nbsp;
-                                            <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <label>와이파이</label>
-                                        </li>
-                                        <li className="facility_item">&nbsp;
-                                            <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <label>TV</label>
-                                        </li>
-                                        <li className="facility_item">&nbsp;
-                                            <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <label>PC</label>
-                                        </li>
-                                    </ui>
+                        <div className="menu_container">
+                            <h3 style={{padding: "0px 0px 15px 0px"}}>날짜</h3>
+                            <div><button onClick={this.handleClick} className="date_bar">{this.state.now}</button></div>
+                            {this.state.isToggle && <Calendar onChange={this.onChange}/>}
+                            <h3 style={{padding: "50px 0px 15px 0px"}}>상세조건</h3>
+                            <div className="control_bar_wrap">
+                                <button className="control_bar">적용</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button className="control_bar" style={{background: "red", color: "white"}} onClick={this.reSetOptions}>초기화</button>
+                                <div>
+                                    <h4 style={{padding: "50px 0px 15px 0px"}}>인원</h4>
+                                    <div className="person">
+                                        <button className="btnUpDown" style={{marginRight: "50px"}} onClick={this.Up}>+</button>
+                                        <span>{this.state.person}</span>
+                                        <button className="btnUpDown" style={{marginLeft: "50px"}} onClick={this.Down}>--</button>
+                                    </div>
+                                    <h4 style={{padding: "50px 0px 25px 0px"}}>시설</h4>
+                                    <div className="facility">
+                                        <ui className="facility_list">
+                                            <li className="facility_item">&nbsp;
+                                                <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <label>수영장</label>
+                                            </li>
+                                            <li className="facility_item">&nbsp;
+                                                <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <label>노래방</label>
+                                            </li>
+                                            <li className="facility_item">&nbsp;
+                                                <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <label>사우나</label>
+                                            </li>
+                                            <li className="facility_item">&nbsp;
+                                                <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <label>테이블</label>
+                                            </li>
+                                            <li className="facility_item">&nbsp;
+                                                <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <label>세탁기</label>
+                                            </li>
+                                            <li className="facility_item">&nbsp;
+                                                <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <label>건조기</label>
+                                            </li>
+                                            <li className="facility_item">&nbsp;
+                                                <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <label>취사가능</label>
+                                            </li>
+                                            <li className="facility_item">&nbsp;
+                                                <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <label>스파</label>
+                                            </li>
+                                            <li className="facility_item">&nbsp;
+                                                <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <label>헬스기구</label>
+                                            </li>
+                                            <li className="facility_item">&nbsp;
+                                                <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <label>온천</label>
+                                            </li>
+                                            <li className="facility_item">&nbsp;
+                                                <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <label>에어컨</label>
+                                            </li>
+                                            <li className="facility_item">&nbsp;
+                                                <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <label>샤워실</label>
+                                            </li>
+                                            <li className="facility_item">&nbsp;
+                                                <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <label>욕조</label>
+                                            </li>
+                                            <li className="facility_item">&nbsp;
+                                                <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <label>와이파이</label>
+                                            </li>
+                                            <li className="facility_item">&nbsp;
+                                                <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <label>TV</label>
+                                            </li>
+                                            <li className="facility_item">&nbsp;
+                                                <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <label>PC</label>
+                                            </li>
+                                        </ui>
+                                    </div>
                                 </div>
                             </div>
-                            
                         </div>
+
                     </Grid>
                     <Grid className="item_wrap" item xs={8}>
-                        <div>상품 준비중...</div>
+                        <div className="item_container">
+                            <div className="orderBtn_wrap">
+                                <button className="orderBtn">추천 순</button>
+                                <button className="orderBtn">거리 순</button>
+                                <button className="orderBtn">낮은 가격 순</button>
+                                <button className="orderBtn">높은 가격 순</button>
+                            </div>
+                            <h3 className="item_title">추천 상품</h3>
+                            <div className="item_list_wrap">
+                                <a href=""><img className="items" alt="no image" src="/static/img/Test_image.jpg" width="100%" height="250px"></img></a>
+                                <a href=""><img className="items" alt="no image" src="/static/img/Test_image.jpg" width="100%" height="250px"></img></a>
+                                <a href=""><img className="items" alt="no image" src="/static/img/Test_image.jpg" width="100%" height="250px"></img></a>
+                            </div>
+                        </div>
                     </Grid>
                 </Grid>
                 <Grid item xs={2}></Grid>
