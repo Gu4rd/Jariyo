@@ -189,9 +189,9 @@ class ReservationBody extends Component{
                             </div>
                             <h3 className="item_title">추천 상품</h3>
                             <div className="item_list_wrap">
-                                <a href=""><img className="items" alt="no image" src="/static/img/Test_image.jpg" width="100%" height="250px"></img></a>
-                                <a href=""><img className="items" alt="no image" src="/static/img/Test_image.jpg" width="100%" height="250px"></img></a>
-                                <a href=""><img className="items" alt="no image" src="/static/img/Test_image.jpg" width="100%" height="250px"></img></a>
+                                <a href=""><img className="items" alt="no image" src="/static/img/hotel_1.jpg" width="100%" height="250px"></img></a>
+                                <a href=""><img className="items" alt="no image" src="/static/img/hotel_2.jpeg" width="100%" height="250px"></img></a>
+                                <a href=""><img className="items" alt="no image" src="/static/img/hotel_3.jpg" width="100%" height="250px"></img></a>
                             </div>
                         </div>
                     </Grid>
