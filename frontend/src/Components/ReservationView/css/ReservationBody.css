@@ -37,6 +37,23 @@
     cursor: pointer;
 }
 
+.decisionDateBtn_wrap{
+    height:40px;
+}
+
+.decisionDateBtn{
+    width: 100%;
+    height: 40px;
+    background-color: white;
+    color: red;
+    border: thin solid red;
+    border-radius: 10px 10px 10px 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+}
+
 .control_bar_wrap{
     max-width: 350px;
     width: 100%;

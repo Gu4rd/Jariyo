@@ -1,10 +1,11 @@
 import React from 'react';
 import {Component} from 'react';
 import Grid from '@material-ui/core/Grid';
-import Calendar from 'react-calendar'
+import { DateRange } from 'react-date-range';
 import moment from 'moment';
 import './css/ReservationBody.css';
-import 'react-calendar/dist/Calendar.css';
+import 'react-date-range/dist/styles.css';
+import 'react-date-range/dist/theme/default.css';
 
 class ReservationBody extends Component{
 
@@ -12,10 +13,16 @@ class ReservationBody extends Component{
         super(props);
         this.state = {
             isToggle: false,
-            now: moment().format('YYYY. MM .DD'),
+            now: moment().format('MM .DD'),
+            until: moment(new Date(Date.now() + (3600 * 1000 * 24))).format('MM. DD'),
+            timegap: 1,
             person: 1,
+            startDate: new Date(),
+            endDate: new Date(),
+            key: 'selection'
         };
         this.handleClick = this.handleClick.bind(this);
+        this.decisionDate = this.decisionDate.bind(this);
         this.Up = this.Up.bind(this);
         this.Down = this.Down.bind(this);
     }
@@ -24,9 +31,22 @@ class ReservationBody extends Component{
         this.setState({isToggle: !this.state.isToggle});
     }
 
-    onChange = date => {
-        this.setState({now: moment(date).format('YYYY. MM. DD'), isToggle: false});
-    };
+    onRangeChange = (ranges) => {
+        this.setState({
+          startDate: ranges['selection'].startDate,
+          endDate: ranges['selection'].endDate,
+          key: ranges['selection'].key,
+        });
+      }
+
+    decisionDate(e) {
+        this.setState({
+            isToggle: false,
+            now: moment(this.state.startDate).format('MM. DD'),
+            until: moment(this.state.endDate).format('MM. DD'),
+            timegap: moment(this.state.endDate).format('DD')-moment(this.state.startDate).format('DD'),
+        });
+    }
 
     Up(e){
         this.setState({person: this.state.person + 1});
@@ -55,8 +75,25 @@ class ReservationBody extends Component{
                     <Grid className="menu_wrap" item xs={4}>
                         <div className="menu_container">
                             <h3 style={{padding: "0px 0px 15px 0px"}}>날짜</h3>
-                            <div><button onClick={this.handleClick} className="date_bar">{this.state.now}</button></div>
-                            {this.state.isToggle && <Calendar onChange={this.onChange}/>}
+                            <div>
+                                <button onClick={this.handleClick} className="date_bar">
+                                    {this.state.now} ~ {this.state.until}&nbsp;
+                                    <span style={{fontSize: "14px", color: "red"}}>{this.state.timegap}박</span>
+                                </button>
+                            </div>
+                            {this.state.isToggle &&
+                                <div>
+                                    <DateRange
+                                        editableDateInputs={true}
+                                        onChange={this.onRangeChange}
+                                        moveRangeOnFirstSelection={false}
+                                        ranges={[this.state]}
+                                        minDate={new Date()}
+                                        maxDate={new Date(Date.now() + (3600 * 1000 * 24 * 7))}
+                                        /><br></br>
+                                    <div className="decisionDateBtn_wrap"><button className="decisionDateBtn" onClick={this.decisionDate}>선택완료</button></div>
+                                </div>
+                            }
                             <h3 style={{padding: "50px 0px 15px 0px"}}>상세조건</h3>
                             <div className="control_bar_wrap">
                                 <button className="control_bar">적용</button>&nbsp;&nbsp;&nbsp;&nbsp;
