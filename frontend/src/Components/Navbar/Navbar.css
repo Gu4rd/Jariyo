@@ -142,14 +142,16 @@ a {
 }
 
 .more {
-    margin-top: 20px;
     display: none;
-    list-style: none;
     width: 95px;
-    background-color: #fd9564;
-    border-radius: 4px;
+    background-color: white;
+    position: absolute;
 }
 
 .moreList {
-    margin-bottom: 10px;
+    display: block;
+}
+
+#moreView:hover .more{
+    display: block;
 }

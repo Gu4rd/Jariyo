@@ -28,21 +28,17 @@ class NavBar extends Component {
         <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
           {MenuItems.map((item, index) => {
             return (
-              <li key={index} onMouseOut={this.moreView2}>
+              <li key={index}>
                 {item.title == '더 보기'
-                ? <a className={item.cName} href={item.url} onMouseOver={this.moreView}>
+                ? <a className={item.cName} href={item.url} id="moreView">
                     {item.title}
+                    <div className="more">
+                      {item.more.title.map((write, idx) =>
+                        <a className="moreList" href={item.more.url[idx]} style={{textDecoration: 'none'}}><span>{write}</span></a>
+                      )}
+                    </div>
                   </a>
-                : <a className={item.cName} href={item.url}>
-                    {item.title}
-                  </a>
-                }
-                {item.title == '더 보기' &&
-                  <ul className="more" onMouseOver={this.moreView}>
-                  {item.more.title.map((a, idx) =>
-                    <li className="moreList"><a href={item.more.url[idx]} style={{textDecoration: 'none', color: 'white'}}>{a}</a></li>
-                  )}
-                  </ul>
+                : <a className={item.cName} href={item.url}>{item.title}</a>
                 }
               </li>
             )
