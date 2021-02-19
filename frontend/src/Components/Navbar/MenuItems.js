@@ -25,7 +25,7 @@ export const MenuItems = [
         cName:'nav-links',
         more: {
             title: ['공지사항', '이벤트', 'qna'],
-            url: ['/notice', '/event', '/qna']
+            url: ['/more/notice', '/more/event', '/more/qna']
         }
     },
     {

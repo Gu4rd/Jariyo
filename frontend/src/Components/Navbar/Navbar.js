@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import { MenuItems } from "./MenuItems";
 import { Button } from "../Button";
 import './Navbar.css';
@@ -30,15 +31,15 @@ class NavBar extends Component {
             return (
               <li key={index}>
                 {item.title == '더 보기'
-                ? <a className={item.cName} href={item.url} id="moreView">
+                ? <Link to={item.url} className={item.cName} id="moreView">
                     {item.title}
                     <div className="more">
                       {item.more.title.map((write, idx) =>
-                        <a className="moreList" href={item.more.url[idx]} style={{textDecoration: 'none'}}><span>{write}</span></a>
+                        <Link to={item.more.url[idx]} key={idx} className="moreList" style={{textDecoration: 'none'}}><span>{write}</span></Link>
                       )}
                     </div>
-                  </a>
-                : <a className={item.cName} href={item.url}>{item.title}</a>
+                  </Link>
+                : <Link to={item.url} className={item.cName}>{item.title}</Link>
                 }
               </li>
             )

@@ -144,14 +144,21 @@ a {
 .more {
     display: none;
     width: 95px;
-    background-color: white;
     position: absolute;
+    border-radius: 4px;
+    font-size: 18px;
+    margin-top: 10px;
 }
 
 .moreList {
     display: block;
+    padding: 5px 0 5px 0;
+    color: black;
+    text-decoration: none;
 }
 
 #moreView:hover .more{
     display: block;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 3px #fd946400;
 }
