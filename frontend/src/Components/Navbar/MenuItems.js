@@ -30,7 +30,7 @@ export const MenuItems = [
     },
     {
         title:'로그인',
-        url:'#login',
-        cName:'nav-links-mobile'
+        url:'/SignIn',
+        cName:'nav-links'
     }
 ]
