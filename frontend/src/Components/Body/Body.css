@@ -1,5 +1,6 @@
 a {
     text-decoration: none;
+    color: coral;
 }
 
 .img_wrap {
@@ -16,10 +17,27 @@ a {
 .quick_menu {
     display: flex;
     grid-template-columns: repeat(9,auto);
-    grid-gap: 34px;
+    grid-gap: 30px;
     list-style: none;
     margin-left: auto;
     margin-right: auto;
-    max-width: 960px;
     text-align: center;
+}
+
+.content_wrap {
+    display: flex;
+}
+
+.member {
+    background-color: coral;
+    padding: 20px 26px;
+    border-radius: 4px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.member a{
+    color:#fff;
+    font-size: 30px;
+    float: right;
 }
