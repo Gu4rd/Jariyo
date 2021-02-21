@@ -5,6 +5,7 @@ import Body from './Body/Body'
 import NavBar from './Navbar/Navbar';
 import ReservationHeader from './ReservationView/ReservationHeader';
 import More from './More/More';
+import Footer from './Footer/Footer'
 
 export default() => (
     <Router>
@@ -12,5 +13,6 @@ export default() => (
         <Route exact path="/" component={Body}></Route>
         <Route path="/reservation/:product/:place" component={ReservationHeader}></Route>
         <Route path="/more/:moreMenu" component={More}></Route>
+        <Footer/>
     </Router>
 )
