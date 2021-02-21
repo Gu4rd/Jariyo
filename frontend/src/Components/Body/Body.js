@@ -2,7 +2,18 @@ import React, { Component } from "react";
 import { Container, Grid } from '@material-ui/core';
 import './Body.css';
 import { QuickMenu } from "./QuickMenu";
-import { Button } from "../Button"
+import { Fade } from "react-slideshow-image";
+import 'react-slideshow-image/dist/styles.css';
+
+const slideImages = [
+    '/static/img/chat_wep.jpg',
+    '/static/img/react_mall.jpg',
+    '/static/img/finduo.jpg'
+]
+const properties = {
+    duration: 2000,
+    transitionDuration: 650,
+}
 
 class Body extends Component {
     render() {
@@ -52,8 +63,30 @@ class Body extends Component {
                                 xhens1<br/><br/>
                                 Contect : chungayun@naver.com
                                 <a href="https://github.com/xhens1"><i className="fab fa-github-square"></i></a>
-
                             </div></Grid>
+
+                            <Grid item xs={12}><br/><br/><h1>다른 프로젝트</h1></Grid><br/>
+                            <Grid item xs={12}>
+                                <div className="slide-container">
+                                    <Fade {...properties}>
+                                        <div className="each-fade">
+                                            <div className="image-container">
+                                                <img src={slideImages[0]} alt="No Image"/>
+                                            </div>
+                                        </div>
+                                        <div className="each-fade">
+                                            <div className="image-container">
+                                                <img src={slideImages[1]} alt="No Image"/>
+                                            </div>
+                                        </div>
+                                        <div className="each-fade">
+                                            <div className="image-container">
+                                                <img src={slideImages[2]} alt="No Image"/>
+                                            </div>
+                                        </div>
+                                    </Fade>
+                                </div>
+                            </Grid>
                         </Grid>
                     </div>
                 </Container>
