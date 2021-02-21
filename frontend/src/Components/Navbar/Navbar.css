@@ -10,6 +10,16 @@ a {
     align-items: center;
     font-size: 1.2rem;
 }
+.NavbarItems.active {
+    background: #fff;
+}
+
+.wrap_nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
 
 .navbar-logo{
     color :#61DAFB;
