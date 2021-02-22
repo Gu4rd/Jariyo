@@ -46,7 +46,7 @@ class Body extends Component {
 
                             <Grid item xs={6}><div className="member">
                                 ewhdtls0<br/><br/>
-                                Contect : ewhdtls0@gmail.com
+                                Contect : ewhdtls0@naver.com
                                 <a href="https://github.com/ewhdtls0"><i className="fab fa-github-square"></i></a>
                             </div></Grid>
                             <Grid item xs={6}><div className="member">
