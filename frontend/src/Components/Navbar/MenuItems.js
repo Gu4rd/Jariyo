@@ -16,7 +16,7 @@ export const MenuItems = [
     },
     {
         title:'예약 내역',
-        url:'#mylist',
+        url:'/mylist',
         cName:'nav-links'
     },
     {

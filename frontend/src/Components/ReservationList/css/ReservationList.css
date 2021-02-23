@@ -1,0 +1,25 @@
+.list_wrap{
+    padding-top: 80px;
+}
+
+.list_body_wrap{
+    padding: 0px 50px 0px 50px;
+}
+
+.list_menu_wrap{
+    padding: 3% 5% 3% 5%;
+}
+
+.list_menu_letters{
+    color: black;
+    font-size: 18px;
+}
+
+.list_menu_letters_wrap{
+    margin-bottom: 10%;
+}
+
+.list_menu_letters_wrap :active{
+    color: red;
+    font-weight: bold;
+}

@@ -1,0 +1,18 @@
+.Reservation_list_header{
+    background: linear-gradient(90deg, rgb(248, 131, 77) 0%, rgb(248, 131, 77) 100%);
+    top: 80px;
+    height: 260px;
+    display: flex;
+    font-size: 1.2rem;
+    padding-top: 80px;
+}
+
+.Reservation_list_letter{
+    width: auto;
+    height: 51px;
+    position: relative;
+    top: 8%;
+    left: 17%;
+    display: inline-block;
+    color: white;
+}
