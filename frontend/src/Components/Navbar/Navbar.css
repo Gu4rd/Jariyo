@@ -152,14 +152,22 @@ a {
 }
 
 .more {
-    margin-top: 20px;
     display: none;
-    list-style: none;
     width: 95px;
-    background-color: #fd9564;
+    position: absolute;
     border-radius: 4px;
+    font-size: 18px;
+    margin-top: 10px;
 }
 
 .moreList {
-    margin-bottom: 10px;
+    display: block;
+    padding: 5px 0 5px 0;
+    color: gray;
+    text-decoration: none;
+}
+
+#moreView:hover .more{
+    display: block;
+    background-color: rgba(255, 255, 255, 0.5);
 }

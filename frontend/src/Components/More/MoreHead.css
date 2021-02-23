@@ -1,0 +1,14 @@
+#moreHead {
+    position: relative;
+    width: 200px;
+    margin-top: 80px;
+    left: 130px;
+    padding-top: 80px;
+}
+
+.title {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: gray;
+}

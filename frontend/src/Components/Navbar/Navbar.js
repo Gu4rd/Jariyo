@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import { MenuItems } from "./MenuItems";
 import { Button } from "../Button";
 import './Navbar.css';
@@ -19,13 +20,6 @@ class NavBar extends Component {
     this.setState({ clicked : !this.state.clicked})
   }
 
-  moreView() {
-    document.getElementsByClassName("more")[0].style.display = 'block';
-  }
-  moreView2() {
-    document.getElementsByClassName("more")[0].style.display = 'none';
-  }
-
   render() {
     window.addEventListener('scroll', this.changeBackground);
     return (
@@ -38,21 +32,17 @@ class NavBar extends Component {
           <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
             {MenuItems.map((item, index) => {
               return (
-                <li key={index} onMouseOut={this.moreView2}>
+                <li key={index}>
                   {item.title == '더 보기'
-                  ? <a className={item.cName} href={item.url} onMouseOver={this.moreView}>
+                  ? <Link to={item.url} className={item.cName} id="moreView">
                       {item.title}
-                    </a>
-                  : <a className={item.cName} href={item.url}>
-                      {item.title}
-                    </a>
-                  }
-                  {item.title == '더 보기' &&
-                    <ul className="more" onMouseOver={this.moreView}>
-                    {item.more.title.map((a, idx) =>
-                      <li className="moreList"><a href={item.more.url[idx]} style={{textDecoration: 'none', color: 'white'}}>{a}</a></li>
-                    )}
-                    </ul>
+                      <div className="more">
+                        {item.more.title.map((write, idx) =>
+                          <Link to={item.more.url[idx]} key={idx} className="moreList" style={{textDecoration: 'none'}}><span>{write}</span></Link>
+                        )}
+                      </div>
+                    </Link>
+                  : <Link to={item.url} className={item.cName}>{item.title}</Link>
                   }
                 </li>
               )
