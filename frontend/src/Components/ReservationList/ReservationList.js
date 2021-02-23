@@ -21,7 +21,7 @@ class ReservationList extends Component{
                         <div className="list_item_none">
                             <h3 style={{textAlign: "center"}}>예약 내역이 없습니다.</h3>
                             <p style={{textAlign: "center", paddingTop: "2%"}}>최저가로 예약 가능한 숙소들을 지금 만나세요!</p>
-                            <div style={{textAlign: "center", paddingTop: "3%"}}><button className="go_reservation_btn">예약 하러가기</button></div>
+                            <div style={{textAlign: "center", paddingTop: "3%"}}><a href="/reservation/호텔/헤네시스"><button className="go_reservation_btn">예약 하러가기</button></a></div>
                         </div>
                     </Grid>
                 </Grid>
