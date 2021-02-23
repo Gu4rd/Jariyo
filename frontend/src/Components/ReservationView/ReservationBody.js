@@ -189,9 +189,39 @@ class ReservationBody extends Component{
                             </div>
                             <h3 className="item_title">추천 상품</h3>
                             <div className="item_list_wrap">
-                                <a href=""><img className="items" alt="no image" src="/static/img/hotel_1.jpg" width="100%" height="250px"></img></a>
-                                <a href=""><img className="items" alt="no image" src="/static/img/hotel_2.jpeg" width="100%" height="250px"></img></a>
-                                <a href=""><img className="items" alt="no image" src="/static/img/hotel_3.jpg" width="100%" height="250px"></img></a>
+                                <a href="/itempage/1">
+                                    <div className="items" style={{backgroundImage: `url("/static/img/hotel_1.jpg")`}}>
+                                        <div className="item_content">
+                                            <h2 className="item_name">마야의 옆 집</h2>
+                                            <p className="item_location">
+                                                헤네시스
+                                                <h3 className="item_cost">50,000원</h3>    
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="/itempage/2">
+                                    <div className="items" style={{backgroundImage: `url("/static/img/hotel_2.jpeg")`}}>
+                                        <div className="item_content">
+                                            <h2 className="item_name">헬레나 교육원</h2>
+                                            <p className="item_location">
+                                                헤네시스 우측 도보 1분
+                                                <h3 className="item_cost">150,000원</h3>    
+                                            </p>
+                                        </div>                                    
+                                    </div>
+                                </a>
+                                <a href="/itempage/3">
+                                    <div className="items" style={{backgroundImage: `url("/static/img/hotel_3.jpg")`}}>
+                                        <div className="item_content">
+                                            <h2 className="item_name">펫 산책로</h2>
+                                            <p className="item_location">
+                                                헤네시스 공원
+                                                <h3 className="item_cost">79,000원</h3>    
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </Grid>
