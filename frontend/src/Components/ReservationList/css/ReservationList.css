@@ -1,0 +1,56 @@
+.list_wrap{
+    padding-top: 80px;
+}
+
+.list_body_wrap{
+    padding: 0px 50px 0px 50px;
+}
+
+.list_menu_wrap{
+    text-align: center;
+    padding: 3% 5% 3% 5%;
+}
+
+.list_menu_letters{
+    color: black;
+    font-size: 18px;
+}
+
+.list_menu_letters_wrap{
+    margin-bottom: 10%;
+}
+
+.list_menu_letters_wrap :active{
+    color: red;
+    font-weight: bold;
+}
+
+.list_item_none{
+    padding-top: 20%;
+}
+
+.go_reservation_btn{
+    width: 30%;
+    height: 40px;
+    border-radius: 10px 10px 10px 10px;
+    border: thin solid red;
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: white;
+    cursor: pointer;
+    outline: none;
+}
+
+.cancle_reservation_btn{
+    width: 15%;
+    height: 25px;
+    border: thin solid red;
+    color: red;
+    font-weight: bold;
+    font-size: 15px;
+    background-color: white;
+    cursor: pointer;
+    outline: none;
+    float: right;
+}
