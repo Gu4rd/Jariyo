@@ -18,10 +18,10 @@ class ReservationList extends Component{
                         </ul>
                     </Grid>
                     <Grid className="list_item_wrap" item xs={8}>
-                        <div>
-                            <h3>예약 내역이 없습니다.</h3>
-                            <b>최저가로 예약 가능한 숙소들을 지금 만나세요!</b>
-                            <div><button>예약 하러가기</button></div>
+                        <div className="list_item_none">
+                            <h3 style={{textAlign: "center"}}>예약 내역이 없습니다.</h3>
+                            <p style={{textAlign: "center", paddingTop: "2%"}}>최저가로 예약 가능한 숙소들을 지금 만나세요!</p>
+                            <div style={{textAlign: "center", paddingTop: "3%"}}><button className="go_reservation_btn">예약 하러가기</button></div>
                         </div>
                     </Grid>
                 </Grid>

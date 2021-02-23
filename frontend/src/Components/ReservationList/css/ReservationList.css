@@ -23,3 +23,18 @@
     color: red;
     font-weight: bold;
 }
+
+.list_item_none{
+    padding-top: 20%;
+}
+
+.go_reservation_btn{
+    width: 30%;
+    height: 40px;
+    border-radius: 10px 10px 10px 10px;
+    border: thin solid red;
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: white;
+}
