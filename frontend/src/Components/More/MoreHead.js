@@ -13,7 +13,7 @@ const MoreHead = ({ render }) => {
 
     return(
         <div id="moreHead">
-            {MenuItems[4].more.title.map((abc, idx) =>
+            {MenuItems[4].more.title.map((item, idx) =>
                 <Link to={MenuItems[4].more.url[idx]} key={idx} className="title">
                     {MenuItems[4].more.url[idx] == currentURL
                         ? <Test>{MenuItems[4].more.title[idx]}</Test>

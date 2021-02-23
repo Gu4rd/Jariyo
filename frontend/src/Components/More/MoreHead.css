@@ -1,9 +1,9 @@
 #moreHead {
-    width: 20%;
-    height: 100%;
-    position: absolute;
-    left: 10%;
-    margin-top: 20px;
+    position: relative;
+    width: 200px;
+    margin-top: 80px;
+    left: 130px;
+    padding-top: 80px;
 }
 
 .title {
