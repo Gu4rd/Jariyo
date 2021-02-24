@@ -1,14 +1,15 @@
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 import { useState } from 'react';
 
-import './MoreBody.css';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 
-const MoreBody = () => {
+import './MoreBodyNotice.css';
+
+const MoreBodyNotice = () => {
     const [visible, setVisible] = useState(false);
 
     return (
-        <div id="moreBody">
+        <div id="moreBodyNotice">
             <b style={{fontSize: '24px'}}>1번째 공지</b>
             {visible == false
             ? <ArrowDropDownIcon style={{float: 'right'}} onClick={() => {setVisible(true)}}/>
@@ -23,4 +24,4 @@ const MoreBody = () => {
     )
 }
 
-export default MoreBody;
+export default MoreBodyNotice;

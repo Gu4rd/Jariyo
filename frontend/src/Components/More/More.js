@@ -1,10 +1,24 @@
-import MoreHead from './MoreHead';
-import MoreBody from './MoreBody';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
-const More = ({ match }) =>{
+import MoreHead from './MoreHead';
+import MoreBodyNotice from './MoreBody/MoreBodyNotice';
+import MoreBodyEvent from './MoreBody/MoreBodyEvent';
+import MoreBodyQna from './MoreBody/MoreBodyQna';
+
+const MoreBody = () => {
     return (
         <>
-            <MoreHead render={match.params}/>
+            <Route path='/more/notice' component={MoreBodyNotice}></Route>
+            <Route path='/more/event' component={MoreBodyEvent}></Route>
+            <Route path='/more/qna' component={MoreBodyQna}></Route>
+        </>
+    )
+}
+
+const More = () =>{
+    return (
+        <>
+            <MoreHead />
             <MoreBody />
         </>
     )

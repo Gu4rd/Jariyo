@@ -12,7 +12,7 @@ export default() => (
         <NavBar/>
         <Route exact path="/" component={Body}></Route>
         <Route path="/reservation/:product/:place" component={ReservationHeader}></Route>
-        <Route path="/more/:moreMenu" component={More}></Route>
+        <Route path="/more" component={More}></Route>
         <Footer/>
     </Router>
 )
