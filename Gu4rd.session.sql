@@ -1,1 +1,1 @@
-SELECT * from test;
+create table reservation
