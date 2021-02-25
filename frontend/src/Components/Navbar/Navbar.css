@@ -162,6 +162,7 @@ a {
 
 .moreList {
     display: block;
+    margin-top: 0px;
     padding: 5px 0 5px 0;
     color: gray;
     text-decoration: none;

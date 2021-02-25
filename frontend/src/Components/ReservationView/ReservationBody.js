@@ -6,6 +6,7 @@ import moment from 'moment';
 import './css/ReservationBody.css';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
+import axios from 'axios';
 
 class ReservationBody extends Component{
 
@@ -68,6 +69,10 @@ class ReservationBody extends Component{
     }
 
     render(){
+        axios.get(`/reservation/${this.props.product_type}/${this.props.product_location}`)
+            .then(response => {
+                console.log(response.data)
+            })
         return(
             <Grid container item>
                 <Grid item xs={2}></Grid>

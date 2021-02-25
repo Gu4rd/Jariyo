@@ -1,1 +1,1 @@
-create table reservation
+select * from reservation

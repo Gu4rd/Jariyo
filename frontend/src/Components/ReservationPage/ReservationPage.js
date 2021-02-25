@@ -27,7 +27,8 @@ class ReservationPage extends Component{
                                             <br></br><br></br><br></br><br></br><br></br><br></br><br></br>
                                             <div><p style={{float: "right"}}>50000원</p></div>
                                             <br></br><br></br>
-                                            <div style={{padding: "2% 2% 2% 2%", borderTop: "thin solid #F5F5F5"}}><button className="Reservation_btn">예약하기</button></div>                                        </Grid>
+                                            <div style={{padding: "2% 2% 2% 2%", borderTop: "thin solid #F5F5F5"}}><button className="Reservation_btn">예약하기</button></div>
+                                        </Grid>
                                     </Grid>
                                     
                                 </div>
@@ -55,7 +56,7 @@ class ReservationPage extends Component{
                                             <br></br><br></br><br></br><br></br><br></br><br></br><br></br>
                                             <div><p style={{float: "right"}}>150000원</p></div>
                                             <br></br><br></br>
-                                            <div style={{padding: "2% 2% 2% 2%", borderTop: "thin solid #F5F5F5"}}><button className="Reservation_btn">예약하기</button></div>                                        </Grid>
+                                            <div style={{padding: "2% 2% 2% 2%", borderTop: "thin solid #F5F5F5"}}><button className="Reservation_btn">예약하기</button></div></Grid>
                                     </Grid>
                                 </div>
                             </div>
