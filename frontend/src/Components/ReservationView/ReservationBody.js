@@ -20,7 +20,8 @@ class ReservationBody extends Component{
             person: 1,
             startDate: new Date(),
             endDate: new Date(),
-            key: 'selection'
+            key: 'selection',
+            product: []
         };
         this.handleClick = this.handleClick.bind(this);
         this.decisionDate = this.decisionDate.bind(this);
@@ -68,11 +69,35 @@ class ReservationBody extends Component{
         window.location.reload();
     }
 
-    render(){
+    getProductData(){
         axios.get(`/reservation/${this.props.product_type}/${this.props.product_location}`)
             .then(response => {
-                console.log(response.data)
-            })
+                this.setState({product: response.data});
+        }) 
+    }
+
+    componentDidMount(){
+        this.getProductData();     
+    }
+
+    render(){
+        var rows = []
+        for(var i = 0; i < this.state.product.length; i++)
+        {
+            rows.push(
+                <a href={`/itempage/${this.state.product[i].id}`}>
+                    <div className="items" style={{backgroundImage: `url("/static/img/hotel_1.jpg")`}}>
+                        <div className="item_content">
+                            <h2 className="item_name">{this.state.product[i].title}</h2>
+                            <p className="item_location">
+                                {this.state.product[i].detailed_location}
+                                <h3 className="item_cost">￦{this.state.product[i].price}</h3>    
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            )
+        }
         return(
             <Grid container item>
                 <Grid item xs={2}></Grid>
@@ -194,39 +219,7 @@ class ReservationBody extends Component{
                             </div>
                             <h3 className="item_title">추천 상품</h3>
                             <div className="item_list_wrap">
-                                <a href="/itempage/1">
-                                    <div className="items" style={{backgroundImage: `url("/static/img/hotel_1.jpg")`}}>
-                                        <div className="item_content">
-                                            <h2 className="item_name">마야의 옆 집</h2>
-                                            <p className="item_location">
-                                                헤네시스
-                                                <h3 className="item_cost">50,000원</h3>    
-                                            </p>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="/itempage/2">
-                                    <div className="items" style={{backgroundImage: `url("/static/img/hotel_2.jpeg")`}}>
-                                        <div className="item_content">
-                                            <h2 className="item_name">헬레나 교육원</h2>
-                                            <p className="item_location">
-                                                헤네시스 우측 도보 1분
-                                                <h3 className="item_cost">150,000원</h3>    
-                                            </p>
-                                        </div>                                    
-                                    </div>
-                                </a>
-                                <a href="/itempage/3">
-                                    <div className="items" style={{backgroundImage: `url("/static/img/hotel_3.jpg")`}}>
-                                        <div className="item_content">
-                                            <h2 className="item_name">펫 산책로</h2>
-                                            <p className="item_location">
-                                                헤네시스 공원
-                                                <h3 className="item_cost">79,000원</h3>    
-                                            </p>
-                                        </div>
-                                    </div>
-                                </a>
+                                {rows}
                             </div>
                         </div>
                     </Grid>
