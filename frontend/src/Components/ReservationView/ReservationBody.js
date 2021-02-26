@@ -21,10 +21,28 @@ class ReservationBody extends Component{
             startDate: new Date(),
             endDate: new Date(),
             key: 'selection',
-            product: []
+            product: [],
+
+            swimming_pool: false,
+            karaoke: false,
+            sauna: false,
+            tables: false,
+            washing_machine: false,
+            dryer: false,
+            cooking_possible: false,
+            spa: false,
+            fitness: false,
+            thermal_springs: false,
+            air_conditioner: false,
+            shower: false,
+            bathtub: false,
+            wifi: false,
+            tv: false,
+            pc: false,
         };
         this.handleClick = this.handleClick.bind(this);
         this.decisionDate = this.decisionDate.bind(this);
+        this.getProductList = this.getProductList.bind(this);
         this.Up = this.Up.bind(this);
         this.Down = this.Down.bind(this);
     }
@@ -67,6 +85,29 @@ class ReservationBody extends Component{
 
     reSetOptions(e){
         window.location.reload();
+    }
+
+    handleCheckClick = (e) => {
+        this.setState({ [e.target.name]: e.target.checked});
+        
+    }
+
+    getProductList = (e) => {
+        axios.get(`/reservation/${this.props.product_type}/${this.props.product_location}/options`, {
+            params: {
+                person: this.state.person, swimming_pool: this.state.swimming_pool,
+                karaoke: this.state.karaoke, sauna: this.state.sauna,
+                tables: this.state.tables, washing_machine: this.state.washing_machine,
+                dryer: this.state.dryer, cooking_possible: this.state.cooking_possible,
+                spa: this.state.spa, fitness: this.state.fitness,
+                thermal_springs: this.state.thermal_springs, air_conditioner: this.state.air_conditioner,
+                shower: this.state.shower, bathtub: this.state.bathtub,
+                wifi: this.state.wifi, tv: this.state.tv,
+                pc: this.state.pc
+            }
+        }).then(response => {
+            console.log(response.data);
+        })
     }
 
     getProductData(){
@@ -126,85 +167,87 @@ class ReservationBody extends Component{
                             }
                             <h3 style={{padding: "50px 0px 15px 0px"}}>상세조건</h3>
                             <div className="control_bar_wrap">
-                                <button className="control_bar">적용</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <button className="control_bar" style={{background: "red", color: "white"}} onClick={this.reSetOptions}>초기화</button>
-                                <div>
-                                    <h4 style={{padding: "50px 0px 15px 0px"}}>인원</h4>
-                                    <div className="person">
-                                        <button className="btnUpDown" style={{marginRight: "50px"}} onClick={this.Up}>+</button>
-                                        <span>{this.state.person}</span>
-                                        <button className="btnUpDown" style={{marginLeft: "50px"}} onClick={this.Down}>--</button>
+                                <button className="control_bar" onClick={this.getProductList}>적용</button>
+                                <button className="control_bar" style={{background: "red", color: "white"}} onClick={this.reSetOptions}>초기화</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <form>
+                                    <div>
+                                        <h4 style={{padding: "50px 0px 15px 0px"}}>인원</h4>
+                                        <div className="person">
+                                            <button className="btnUpDown" style={{marginRight: "50px"}} onClick={this.Up}>+</button>
+                                            <span>{this.state.person}</span>
+                                            <button className="btnUpDown" style={{marginLeft: "50px"}} onClick={this.Down}>--</button>
+                                        </div>
+                                        <h4 style={{padding: "50px 0px 25px 0px"}}>시설</h4>
+                                        <div className="facility">
+                                            <ui className="facility_list">
+                                                <li className="facility_item">&nbsp;
+                                                    <input type="checkbox" className="facility_check" name="swimming_pool" chekced={this.state.swimming_pool} onChange={this.handleCheckClick}></input>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <label>수영장</label>
+                                                </li>
+                                                <li className="facility_item">&nbsp;
+                                                    <input type="checkbox" className="facility_check" name="karaoke" chekced={this.state.karaoke} onChange={this.handleCheckClick}></input>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <label>노래방</label>
+                                                </li>
+                                                <li className="facility_item">&nbsp;
+                                                    <input type="checkbox" className="facility_check" name="sauna" chekced={this.state.sauna} onChange={this.handleCheckClick}></input>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <label>사우나</label>
+                                                </li>
+                                                <li className="facility_item">&nbsp;
+                                                    <input type="checkbox" className="facility_check" name="tables" chekced={this.state.tables} onChange={this.handleCheckClick}></input>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <label>테이블</label>
+                                                </li>
+                                                <li className="facility_item">&nbsp;
+                                                    <input type="checkbox" className="facility_check" name="washing_machine" chekced={this.state.washing_machine} onChange={this.handleCheckClick}></input>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <label>세탁기</label>
+                                                </li>
+                                                <li className="facility_item">&nbsp;
+                                                    <input type="checkbox" className="facility_check" name="dryer" chekced={this.state.dryer} onChange={this.handleCheckClick}></input>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <label>건조기</label>
+                                                </li>
+                                                <li className="facility_item">&nbsp;
+                                                    <input type="checkbox" className="facility_check" name="cooking_possible" chekced={this.state.cooking_possible} onChange={this.handleCheckClick}></input>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <label>취사가능</label>
+                                                </li>
+                                                <li className="facility_item">&nbsp;
+                                                    <input type="checkbox" className="facility_check" name="spa" chekced={this.state.spa} onChange={this.handleCheckClick}></input>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <label>스파</label>
+                                                </li>
+                                                <li className="facility_item">&nbsp;
+                                                    <input type="checkbox" className="facility_check" name="fitness" chekced={this.state.fitness} onChange={this.handleCheckClick}></input>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <label>헬스기구</label>
+                                                </li>
+                                                <li className="facility_item">&nbsp;
+                                                    <input type="checkbox" className="facility_check" name="thermal_springs" chekced={this.state.thermal_springs} onChange={this.handleCheckClick}></input>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <label>온천</label>
+                                                </li>
+                                                <li className="facility_item">&nbsp;
+                                                    <input type="checkbox" className="facility_check" name="air_conditioner" chekced={this.state.air_conditioner} onChange={this.handleCheckClick}></input>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <label>에어컨</label>
+                                                </li>
+                                                <li className="facility_item">&nbsp;
+                                                    <input type="checkbox" className="facility_check" name="shower" chekced={this.state.shower} onChange={this.handleCheckClick}></input>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <label>샤워실</label>
+                                                </li>
+                                                <li className="facility_item">&nbsp;
+                                                    <input type="checkbox" className="facility_check" name="bathtub" chekced={this.state.bathtub} onChange={this.handleCheckClick}></input>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <label>욕조</label>
+                                                </li>
+                                                <li className="facility_item">&nbsp;
+                                                    <input type="checkbox" className="facility_check" name="wifi" chekced={this.state.wifi} onChange={this.handleCheckClick}></input>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <label>와이파이</label>
+                                                </li>
+                                                <li className="facility_item">&nbsp;
+                                                    <input type="checkbox" className="facility_check" name="tv" chekced={this.state.tv} onChange={this.handleCheckClick}></input>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <label>TV</label>
+                                                </li>
+                                                <li className="facility_item">&nbsp;
+                                                    <input type="checkbox" className="facility_check" name="pc" chekced={this.state.pc} onChange={this.handleCheckClick}></input>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <label>PC</label>
+                                                </li>
+                                            </ui>
+                                        </div>
                                     </div>
-                                    <h4 style={{padding: "50px 0px 25px 0px"}}>시설</h4>
-                                    <div className="facility">
-                                        <ui className="facility_list">
-                                            <li className="facility_item">&nbsp;
-                                                <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <label>수영장</label>
-                                            </li>
-                                            <li className="facility_item">&nbsp;
-                                                <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <label>노래방</label>
-                                            </li>
-                                            <li className="facility_item">&nbsp;
-                                                <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <label>사우나</label>
-                                            </li>
-                                            <li className="facility_item">&nbsp;
-                                                <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <label>테이블</label>
-                                            </li>
-                                            <li className="facility_item">&nbsp;
-                                                <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <label>세탁기</label>
-                                            </li>
-                                            <li className="facility_item">&nbsp;
-                                                <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <label>건조기</label>
-                                            </li>
-                                            <li className="facility_item">&nbsp;
-                                                <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <label>취사가능</label>
-                                            </li>
-                                            <li className="facility_item">&nbsp;
-                                                <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <label>스파</label>
-                                            </li>
-                                            <li className="facility_item">&nbsp;
-                                                <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <label>헬스기구</label>
-                                            </li>
-                                            <li className="facility_item">&nbsp;
-                                                <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <label>온천</label>
-                                            </li>
-                                            <li className="facility_item">&nbsp;
-                                                <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <label>에어컨</label>
-                                            </li>
-                                            <li className="facility_item">&nbsp;
-                                                <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <label>샤워실</label>
-                                            </li>
-                                            <li className="facility_item">&nbsp;
-                                                <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <label>욕조</label>
-                                            </li>
-                                            <li className="facility_item">&nbsp;
-                                                <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <label>와이파이</label>
-                                            </li>
-                                            <li className="facility_item">&nbsp;
-                                                <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <label>TV</label>
-                                            </li>
-                                            <li className="facility_item">&nbsp;
-                                                <input type="checkbox" className="facility_check"></input>&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <label>PC</label>
-                                            </li>
-                                        </ui>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
 
