@@ -213,7 +213,6 @@ class ReservationBody extends Component{
                         <div className="item_container">
                             <div className="orderBtn_wrap">
                                 <button className="orderBtn">추천 순</button>
-                                <button className="orderBtn">거리 순</button>
                                 <button className="orderBtn">낮은 가격 순</button>
                                 <button className="orderBtn">높은 가격 순</button>
                             </div>
