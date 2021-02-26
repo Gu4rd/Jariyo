@@ -154,7 +154,7 @@ public class product {
         return sauna;
     }
     public void setSauna(int sauna){
-        this.id = sauna;
+        this.sauna = sauna;
     }
 
     public int getTables(){
