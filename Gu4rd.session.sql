@@ -1,1 +1,1 @@
-desc reservation
+select * from reservation

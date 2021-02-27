@@ -7,6 +7,7 @@ import './css/ReservationBody.css';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import axios from 'axios';
+import qs from 'qs';
 
 class ReservationBody extends Component{
 
@@ -23,6 +24,7 @@ class ReservationBody extends Component{
             key: 'selection',
             product: [],
 
+            checkedItems: new Set(),
             swimming_pool: false,
             karaoke: false,
             sauna: false,
@@ -89,24 +91,23 @@ class ReservationBody extends Component{
 
     handleCheckClick = (e) => {
         this.setState({ [e.target.name]: e.target.checked});
+        console.log(e.target.name)
+        if(this.state.checkedItems.has(e.target.name)){
+            this.state.checkedItems.delete(e.target.name);
+        }
+        else{
+            this.state.checkedItems.add(e.target.name);
+        }
+        console.log(this.state.checkedItems)
         
     }
 
     getProductList = (e) => {
-        axios.get(`/reservation/${this.props.product_type}/${this.props.product_location}/options`, {
-            params: {
-                person: this.state.person, swimming_pool: this.state.swimming_pool,
-                karaoke: this.state.karaoke, sauna: this.state.sauna,
-                tables: this.state.tables, washing_machine: this.state.washing_machine,
-                dryer: this.state.dryer, cooking_possible: this.state.cooking_possible,
-                spa: this.state.spa, fitness: this.state.fitness,
-                thermal_springs: this.state.thermal_springs, air_conditioner: this.state.air_conditioner,
-                shower: this.state.shower, bathtub: this.state.bathtub,
-                wifi: this.state.wifi, tv: this.state.tv,
-                pc: this.state.pc
-            }
-        }).then(response => {
-            console.log(response.data);
+        var myArray = Array.from(this.state.checkedItems);
+        console.log(myArray.length);
+        axios.get(`/reservation/${this.props.product_type}/${this.props.product_location}/options/${myArray}`)
+        .then(response => {
+            console.log(response.data)
         })
     }
 

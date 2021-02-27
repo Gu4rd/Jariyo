@@ -13,4 +13,7 @@ public interface productMapper {
     
     @Select("SELECT * FROM reservation WHERE product_type = #{product_type} AND product_location = #{product_location}")
     List<product> getProduct(@Param("product_type") String product_type, @Param("product_location") String product_location);
+
+    @Select("SELECT * FROM reservation WHERE product_type = #{product_type} AND product_location = #{product_location}")
+    List<product> getOptionedProduct(@Param("product_type") String product_type, @Param("product_location") String product_location, @Param("myArray") List<String> myArray);
 }
