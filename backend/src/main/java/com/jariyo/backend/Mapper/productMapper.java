@@ -2,6 +2,7 @@ package com.jariyo.backend.Mapper;
 
 import java.util.List;
 
+import com.jariyo.backend.Model.options;
 import com.jariyo.backend.Model.product;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -14,10 +15,24 @@ public interface productMapper {
     @Select("SELECT * FROM reservation WHERE product_type = #{product_type} AND product_location = #{product_location}")
     List<product> getProduct(@Param("product_type") String product_type, @Param("product_location") String product_location);
 
+    @Select("SELECT * FROM reservation WHERE product_type = #{product_type} AND product_location = #{product_location} AND acceptable_person >= #{person}")
+    List<product> getPersonProduct(@Param("product_type") String product_type, @Param("product_location") String product_location, @Param("person") int person);
+
+    @Select("SELECT * FROM productOptions WHERE id = #{id}")
+    List<options> getProductOptions(@Param("id") int id);
+
+
+
+
+
+
+
+
+
     @Select({"<script>",
             "SELECT *",
             "FROM reservation",
-            "WHERE product_type = #{product_type} AND product_location = #{product_location}",
+            "WHERE product_type = #{product_type} AND product_location = #{product_location} AND acceptable_person >= #{person}",
             "<if test='myArray != null and myArray.size == 1'>",
                 "AND ${myArray.get(0)} = 1",
             "</if>",
@@ -64,5 +79,5 @@ public interface productMapper {
                 "AND ${myArray.get(0)} = 1 AND ${myArray.get(1)} = 1 AND ${myArray.get(2)} = 1 AND ${myArray.get(3)} = 1 AND ${myArray.get(4)} = 1 AND ${myArray.get(5)} = 1 AND ${myArray.get(6)} = 1 AND ${myArray.get(7)} = 1 AND ${myArray.get(8)} = 1 AND ${myArray.get(9)} = 1 AND ${myArray.get(10)} = 1 AND ${myArray.get(11)} = 1AND ${myArray.get(12)} = 1 AND ${myArray.get(13)} = 1 AND ${myArray.get(14)} = 1",
             "</if>",
             "</script>"})
-    List<product> getOptionedProduct(@Param("product_type") String product_type, @Param("product_location") String product_location, @Param("myArray") List<String> myArray);
+    List<product> getOptionedProduct(@Param("product_type") String product_type, @Param("product_location") String product_location, @Param("person") int person, @Param("myArray") List<String> myArray);
 }
