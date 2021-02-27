@@ -15,7 +15,7 @@ export default() => (
         <Route exact path="/" component={Body}></Route>
         <Route path="/reservation/:product_type/:product_location" component={ReservationHeader}></Route>
         <Route path="/mylist" component={ReservationListHeader}></Route>
-        <Route path="/itempage/:id" component={ReservationPage}></Route>
+        <Route path="/itempage/:id/:title/:detailed_location" component={ReservationPage}></Route>
         <Route path="/more" component={More}></Route>
         <Footer/>
     </Router>
