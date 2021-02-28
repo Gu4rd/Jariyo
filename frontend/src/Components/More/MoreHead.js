@@ -19,11 +19,11 @@ const MoreHead = () => {
     
     return(
         <div id="moreHead">
-            {MenuItems[4].more.title.map((item, idx) =>
-                <Link to={MenuItems[4].more.url[idx]} key={idx} className="title">
-                    {MenuItems[4].more.url[idx] == moreMenu
-                        ? <Test>{MenuItems[4].more.title[idx]}</Test>
-                        : MenuItems[4].more.title[idx]
+            {MenuItems[3].more.title.map((item, idx) =>
+                <Link to={MenuItems[3].more.url[idx]} key={idx} className="title">
+                    {MenuItems[3].more.url[idx] == moreMenu
+                        ? <Test>{MenuItems[3].more.title[idx]}</Test>
+                        : MenuItems[3].more.title[idx]
                     }
                 </Link>
             )}
