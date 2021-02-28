@@ -2,17 +2,41 @@ import React, {Component} from "react";
 import {Grid} from "@material-ui/core";
 import './css/ReservationPage.css';
 import axios from 'axios';
+import $ from "jquery";
 
 
 class ReservationPage extends Component{
     constructor(props){
         super(props);
+        // 상품의 정보를 부모로부터 받아옴
         this.state = {
-            title: "title",
+            product_id: this.props.match.params.id,
+            period: this.props.match.params.date,
+            title: this.props.match.params.title,
+            detailed_location: this.props.match.params.detailed_location,
+            price: this.props.match.params.price,
             options: [],
         };
+        this.reservation = this.reservation.bind(this);
     }
 
+    // 상품 예약 POST
+    reservation(){
+        var {product_id, period, title, price, detailed_location} = this.state;
+        axios.post('/reservation', {
+            product_id: product_id,
+            user_id: "admin",
+            title: title,
+            detailed_location: detailed_location,
+            price: price,
+            period: period,
+        }).then(response => {
+            alert('예약 완료');
+            window.location.href = "/reservation/호텔/헤네시스";
+        })
+    }
+
+    // 상품의 옵션 GET
     getData(){
         axios.get(`/itempage/${this.props.match.params.id}`)
             .then(response => {
@@ -24,6 +48,8 @@ class ReservationPage extends Component{
         this.getData();     
     }
     render(){
+
+        // 상품의 옵션들을 불러옴 ex(솔로, 트윈)
         var rows = []
         for(var i=0; i < this.state.options.length; i++)
         {
@@ -38,7 +64,7 @@ class ReservationPage extends Component{
                             <br></br><br></br><br></br><br></br><br></br><br></br><br></br>
                             <div><p style={{float: "right"}}>￦ {this.state.options[i].price}</p></div>
                             <br></br><br></br>
-                            <div style={{padding: "2% 2% 2% 2%", borderTop: "thin solid #F5F5F5"}}><button className="Reservation_btn">예약하기</button></div>
+                            <div style={{padding: "2% 2% 2% 2%", borderTop: "thin solid #F5F5F5"}}><button className="Reservation_btn" onClick={this.reservation}>예약하기</button></div>
                         </Grid>
                     </Grid>
                 </div>
