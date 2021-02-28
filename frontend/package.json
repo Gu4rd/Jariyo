@@ -12,6 +12,7 @@
     "bootstrap": "^4.6.0",
     "date-fns": "^2.17.0",
     "moment": "^2.29.1",
+    "qs": "^6.9.6",
     "react": "^17.0.1",
     "react-bootstrap": "^1.5.0",
     "react-calendar": "^3.3.1",
