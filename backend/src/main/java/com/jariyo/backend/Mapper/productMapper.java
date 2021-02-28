@@ -4,13 +4,18 @@ import java.util.List;
 
 import com.jariyo.backend.Model.options;
 import com.jariyo.backend.Model.product;
+import com.jariyo.backend.Model.reservation_list;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface productMapper {
+
+    @Select("SELECT * FROM reservation WHERE id = #{product_id}")
+    List<product> getProductById(@Param("product_id") int product_id);
     
     @Select("SELECT * FROM reservation WHERE product_type = #{product_type} AND product_location = #{product_location}")
     List<product> getProduct(@Param("product_type") String product_type, @Param("product_location") String product_location);
@@ -21,62 +26,24 @@ public interface productMapper {
     @Select("SELECT * FROM productOptions WHERE id = #{id}")
     List<options> getProductOptions(@Param("id") int id);
 
+    @Select("SELECT * FROM reservation_list")
+    List<reservation_list> getReservation_list();
+
+    @Insert("INSERT INTO reservation_list(product_id, user_id, title, detailed_location, price, period) VALUES(#{product_id}, #{user_id}, #{title}, #{detailed_location}, #{price}, #{period})")
+    int postReservation(@Param("product_id") int product_id, @Param("user_id") String user_id, @Param("title") String title, @Param("detailed_location") String detailed_location, @Param("price") int price, @Param("period") String period);
 
 
-
-
-
-
-
-
+    // 동적 쿼리
+    // 옵션의 개수는 0개 ~ 16개로 정확한 값을 알 수 없음
+    // 선택한 옵션 갯수만큼 쿼리를 반복해 옵션을 적용한 상품 검색
     @Select({"<script>",
             "SELECT *",
             "FROM reservation",
             "WHERE product_type = #{product_type} AND product_location = #{product_location} AND acceptable_person >= #{person}",
-            "<if test='myArray != null and myArray.size == 1'>",
-                "AND ${myArray.get(0)} = 1",
-            "</if>",
-            "<if test='myArray != null and myArray.size == 2'>",
-                "AND ${myArray.get(0)} = 1 AND ${myArray.get(1)} = 1",
-            "</if>",
-            "<if test='myArray != null and myArray.size == 3'>",
-                "AND ${myArray.get(0)} = 1 AND ${myArray.get(1)} = 1 AND ${myArray.get(2)} = 1",
-            "</if>",
-            "<if test='myArray != null and myArray.size == 4'>",
-                "AND ${myArray.get(0)} = 1 AND ${myArray.get(1)} = 1 AND ${myArray.get(2)} = 1 AND ${myArray.get(3)} = 1",
-            "</if>",
-            "<if test='myArray != null and myArray.size == 5'>",
-                "AND ${myArray.get(0)} = 1 AND ${myArray.get(1)} = 1 AND ${myArray.get(2)} = 1 AND ${myArray.get(3)} = 1 AND ${myArray.get(4)} = 1",
-            "</if>",
-            "<if test='myArray != null and myArray.size == 6'>",
-                "AND ${myArray.get(0)} = 1 AND ${myArray.get(1)} = 1 AND ${myArray.get(2)} = 1 AND ${myArray.get(3)} = 1 AND ${myArray.get(4)} = 1 AND ${myArray.get(5)} = 1",
-            "</if>",
-            "<if test='myArray != null and myArray.size == 7'>",
-                "AND ${myArray.get(0)} = 1 AND ${myArray.get(1)} = 1 AND ${myArray.get(2)} = 1 AND ${myArray.get(3)} = 1 AND ${myArray.get(4)} = 1 AND ${myArray.get(5)} = 1 AND ${myArray.get(6)} = 1",
-            "</if>",
-            "<if test='myArray != null and myArray.size == 8'>",
-                "AND ${myArray.get(0)} = 1 AND ${myArray.get(1)} = 1 AND ${myArray.get(2)} = 1 AND ${myArray.get(3)} = 1 AND ${myArray.get(4)} = 1 AND ${myArray.get(5)} = 1 AND ${myArray.get(6)} = 1 AND ${myArray.get(7)} = 1",
-            "</if>",
-            "<if test='myArray != null and myArray.size == 9'>",
-                "AND ${myArray.get(0)} = 1 AND ${myArray.get(1)} = 1 AND ${myArray.get(2)} = 1 AND ${myArray.get(3)} = 1 AND ${myArray.get(4)} = 1 AND ${myArray.get(5)} = 1 AND ${myArray.get(6)} = 1 AND ${myArray.get(7)} = 1 AND ${myArray.get(8)} = 1",
-            "</if>",
-            "<if test='myArray != null and myArray.size == 10'>",
-                "AND ${myArray.get(0)} = 1 AND ${myArray.get(1)} = 1 AND ${myArray.get(2)} = 1 AND ${myArray.get(3)} = 1 AND ${myArray.get(4)} = 1 AND ${myArray.get(5)} = 1 AND ${myArray.get(6)} = 1 AND ${myArray.get(7)} = 1 AND ${myArray.get(8)} = 1 AND ${myArray.get(9)} = 1",
-            "</if>",
-            "<if test='myArray != null and myArray.size == 11'>",
-                "AND ${myArray.get(0)} = 1 AND ${myArray.get(1)} = 1 AND ${myArray.get(2)} = 1 AND ${myArray.get(3)} = 1 AND ${myArray.get(4)} = 1 AND ${myArray.get(5)} = 1 AND ${myArray.get(6)} = 1 AND ${myArray.get(7)} = 1 AND ${myArray.get(8)} = 1 AND ${myArray.get(9)} = 1 AND ${myArray.get(10)} = 1",
-            "</if>",
-            "<if test='myArray != null and myArray.size == 12'>",
-                "AND ${myArray.get(0)} = 1 AND ${myArray.get(1)} = 1 AND ${myArray.get(2)} = 1 AND ${myArray.get(3)} = 1 AND ${myArray.get(4)} = 1 AND ${myArray.get(5)} = 1 AND ${myArray.get(6)} = 1 AND ${myArray.get(7)} = 1 AND ${myArray.get(8)} = 1 AND ${myArray.get(9)} = 1 AND ${myArray.get(10)} = 1 AND ${myArray.get(11)} = 1",
-            "</if>",
-            "<if test='myArray != null and myArray.size == 13'>",
-                "AND ${myArray.get(0)} = 1 AND ${myArray.get(1)} = 1 AND ${myArray.get(2)} = 1 AND ${myArray.get(3)} = 1 AND ${myArray.get(4)} = 1 AND ${myArray.get(5)} = 1 AND ${myArray.get(6)} = 1 AND ${myArray.get(7)} = 1 AND ${myArray.get(8)} = 1 AND ${myArray.get(9)} = 1 AND ${myArray.get(10)} = 1 AND ${myArray.get(11)} = 1 AND ${myArray.get(12)} = 1",
-            "</if>",
-            "<if test='myArray != null and myArray.size == 14'>",
-                "AND ${myArray.get(0)} = 1 AND ${myArray.get(1)} = 1 AND ${myArray.get(2)} = 1 AND ${myArray.get(3)} = 1 AND ${myArray.get(4)} = 1 AND ${myArray.get(5)} = 1 AND ${myArray.get(6)} = 1 AND ${myArray.get(7)} = 1 AND ${myArray.get(8)} = 1 AND ${myArray.get(9)} = 1 AND ${myArray.get(10)} = 1 AND ${myArray.get(11)} = 1 AND ${myArray.get(12)} = 1 AND ${myArray.get(13)} = 1",
-            "</if>",
-            "<if test='myArray != null and myArray.size == 15'>",
-                "AND ${myArray.get(0)} = 1 AND ${myArray.get(1)} = 1 AND ${myArray.get(2)} = 1 AND ${myArray.get(3)} = 1 AND ${myArray.get(4)} = 1 AND ${myArray.get(5)} = 1 AND ${myArray.get(6)} = 1 AND ${myArray.get(7)} = 1 AND ${myArray.get(8)} = 1 AND ${myArray.get(9)} = 1 AND ${myArray.get(10)} = 1 AND ${myArray.get(11)} = 1AND ${myArray.get(12)} = 1 AND ${myArray.get(13)} = 1 AND ${myArray.get(14)} = 1",
+            "<if test='myArray != null'>",
+            "   <foreach item='columnName' collection='myArray' separator=' and ' open=' and '>",
+            "       ${columnName} = 1",
+            "   </foreach>",
             "</if>",
             "</script>"})
     List<product> getOptionedProduct(@Param("product_type") String product_type, @Param("product_location") String product_location, @Param("person") int person, @Param("myArray") List<String> myArray);
