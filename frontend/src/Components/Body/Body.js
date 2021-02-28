@@ -46,22 +46,22 @@ class Body extends Component {
 
                             <Grid item xs={6}><div className="member">
                                 ewhdtls0<br/><br/>
-                                Contect : ewhdtls0@naver.com
+                                Contact : ewhdtls0@naver.com
                                 <a href="https://github.com/ewhdtls0"><i className="fab fa-github-square"></i></a>
                             </div></Grid>
                             <Grid item xs={6}><div className="member">
                                 feel0321<br/><br/>
-                                Contect : feel0321@naver.com
+                                Contact : dishate@naver.com
                                 <a href="https://github.com/feel0321"><i className="fab fa-github-square"></i></a>
                             </div></Grid>
                             <Grid item xs={6}><div className="member">
                                 Gu4rd<br/><br/>
-                                Contect : rhrudgh12@naver.com
+                                Contact : rhrudgh12@naver.com
                                 <a href="https://github.com/gu4rd"><i className="fab fa-github-square"></i></a>
                             </div></Grid>
                             <Grid item xs={6}><div className="member">
                                 xhens1<br/><br/>
-                                Contect : chungayun@naver.com
+                                Contact : chungayun@naver.com
                                 <a href="https://github.com/xhens1"><i className="fab fa-github-square"></i></a>
                             </div></Grid>
 
