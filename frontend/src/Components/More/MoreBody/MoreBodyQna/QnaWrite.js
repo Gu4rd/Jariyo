@@ -4,23 +4,26 @@ import Form from 'react-bootstrap/Form'
 import axios from "axios";
 
 const QnaWrite = () => {
+    const today = new Date();
+
     const [qna, setQna] = useState({
         category: '호텔',
         type: '이벤트',
         content: '',
         writer: 'test123',
         status: 0,
-        writeDate: ''
+        writeDate: today.getFullYear() + "-" + ("0" + (1 + today.getMonth())).slice(-2) + "-" + ("0" + today.getDate()).slice(-2)
     });
 
-    const submitQna = () => {
+    const submitQna = () => {        
         axios.post('/qna/write', qna)
             .then(() => {
-                console.log('완료');
+                window.location = "/";
             })
             .catch((error) => {
-                console.log(error);
+                console.log('오류! ' + error);
             })
+        alert("문의가 등록되었습니다");
     }
 
     return (
