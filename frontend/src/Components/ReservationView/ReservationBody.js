@@ -49,10 +49,12 @@ class ReservationBody extends Component{
         this.Down = this.Down.bind(this);
     }
 
+    // 달력 열기 닫기
     handleClick(e){
         this.setState({isToggle: !this.state.isToggle});
     }
 
+    // 날짜 조정
     onRangeChange = (ranges) => {
         this.setState({
           startDate: ranges['selection'].startDate,
@@ -61,6 +63,7 @@ class ReservationBody extends Component{
         });
       }
 
+    // 날짜 결정 버튼 (끝날 - 시작날 = N박)
     decisionDate(e) {
         this.setState({
             isToggle: false,
@@ -70,6 +73,7 @@ class ReservationBody extends Component{
         });
     }
 
+    // 인원 조절
     Up(e){
         this.setState({person: this.state.person + 1});
     };
@@ -85,10 +89,12 @@ class ReservationBody extends Component{
         
     };
 
+    // 모든 옵션 초기화
     reSetOptions(e){
         window.location.reload();
     }
 
+    // 옵션 선택 시
     handleCheckClick = (e) => {
         this.setState({ [e.target.name]: e.target.checked});
         if(this.state.checkedItems.has(e.target.name)){
@@ -99,6 +105,7 @@ class ReservationBody extends Component{
         }        
     }
 
+    // 옵션 별 상품 불러오기
     getProductList = (e) => {
         var myArray = null;
         myArray = Array.from(this.state.checkedItems);
@@ -117,6 +124,7 @@ class ReservationBody extends Component{
 
     }
 
+    // 해당 지역 전체 상품 불러오기
     getProductData(){
         axios.get(`/reservation/${this.props.product_type}/${this.props.product_location}`)
             .then(response => {
@@ -129,11 +137,13 @@ class ReservationBody extends Component{
     }
 
     render(){
+
+        // 상품의 내용 VIEW
         var rows = []
         for(var i = 0; i < this.state.product.length; i++)
         {
             rows.push(
-                <Link to={`/itempage/${this.state.product[i].id}/${this.state.product[i].title}/${this.state.product[i].detailed_location}`}>
+                <Link to={`/itempage/${this.state.product[i].id}/${this.state.product[i].title}/${this.state.product[i].detailed_location}/${this.state.now} ~ ${this.state.until}/${this.state.product[i].price}`}>
                     <div className="items" style={{backgroundImage: `url("/static/img/product.jpg")`}}>
                         <div className="item_content">
                             <h2 className="item_name">{this.state.product[i].title}</h2>

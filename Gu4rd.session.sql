@@ -1,1 +1,1 @@
-select * from productOptions
+alter table reservation_list modify price int not null
