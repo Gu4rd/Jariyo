@@ -17,17 +17,16 @@ const QnaDetail = () => {
         <>
         {myQna.map((qna) => {
             return (
-                <div className="qnaList" style={{marginTop: '30px'}} key={qna.content}>
+                <div className="qnaList" key={qna.content}>
                     <b>{qna.content}</b>
                     <div style={{float: 'right'}}>
                         <span style={{paddingRight: '10px'}}>{qna.category}</span>
                         >
                         <span style={{paddingLeft: '10px', paddingRight: '10px'}}>{qna.type}</span>
                         >
-                        <span style={{paddingLeft: '10px'}}>답변 대기중</span>
                         {qna.status == 0
-                        ?   <ArrowDropDownIcon disabled/>
-                        :   <ArrowDropDownIcon />
+                        ?   <span style={{paddingLeft: '10px'}}>답변 대기중</span>
+                        :   <><span style={{paddingLeft: '10px'}}>답변 완료</span><ArrowDropDownIcon /></>
                         }
                     </div>
                     <br />
@@ -35,7 +34,8 @@ const QnaDetail = () => {
                     <br /><br /><hr />
                 </div>
             )
-        })}
+        })
+        }
         </>
     )
 }
