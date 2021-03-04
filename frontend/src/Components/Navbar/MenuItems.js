@@ -22,10 +22,5 @@ export const MenuItems = [
             title: ['공지사항', '이벤트', 'qna'],
             url: ['/more/notice', '/more/event', '/more/qna']
         }
-    },
-    {
-        title:'로그인',
-        url:'#login',
-        cName:'nav-links-mobile'
     }
 ]
