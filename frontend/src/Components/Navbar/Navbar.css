@@ -168,14 +168,13 @@ a {
     position: absolute;
     border-radius: 4px;
     font-size: 18px;
-    margin-top: 10px;
 }
 
 .moreList {
     display: block;
-    padding: 5px 0 5px 0;
     color: gray;
     text-decoration: none;
+    padding: 5px 0 5px 0;
 }
 
 #moreView:hover .more{

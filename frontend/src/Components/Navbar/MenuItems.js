@@ -10,11 +10,6 @@ export const MenuItems = [
         cName:'nav-links'
     },
     {
-        title:'내 주변',
-        url:'#product-ard',
-        cName:'nav-links'
-    },
-    {
         title:'예약 내역',
         url:'/mylist',
         cName:'nav-links'

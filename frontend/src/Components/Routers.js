@@ -13,10 +13,10 @@ export default() => (
     <Router>
         <NavBar/>
         <Route exact path="/" component={Body}></Route>
-        <Route path="/reservation/:product/:place" component={ReservationHeader}></Route>
+        <Route path="/reservation/:product_type/:product_location" component={ReservationHeader}></Route>
         <Route path="/mylist" component={ReservationListHeader}></Route>
-        <Route path="/itempage/:id" component={ReservationPage}></Route>
-        <Route path="/more/:moreMenu" component={More}></Route>
+        <Route path="/itempage/:id/:title/:detailed_location/:date/:price" component={ReservationPage}></Route>
+        <Route path="/more" component={More}></Route>
         <Footer/>
     </Router>
 )
