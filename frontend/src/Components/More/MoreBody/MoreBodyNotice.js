@@ -7,18 +7,20 @@ import './MoreBodyNotice.css';
 
 // 공지사항과 이벤트는 정적으로 정의한 페이지임을 알립니다
 
+// 공지의 개수만큼 false를 default로 하는 Array 생성
+// 공지를 클릭하면 true로 바뀌어서 content가 보이게끔
 const noticeCount = 2
-const aaa = Array.from({length: noticeCount}, () => false);
+const buffer = Array.from({length: noticeCount}, () => false);
 
 const MoreBodyNotice = () => {
-    const [visible, setVisible] = useState([...aaa]);
+    const [visible, setVisible] = useState([...buffer]);
 
     return (
         <div id="moreBodyNotice">
             <b style={{fontSize: '24px', color: 'coral'}}>Jariyo Open!</b>
             {visible[0] == false
-            ? <ArrowDropDownIcon style={{float: 'right'}} onClick={() => {aaa[0] = true;setVisible([...aaa])}}/>
-            : <ArrowDropUpIcon style={{float: 'right'}} onClick={() => {aaa[0] = false;setVisible([...aaa])}}/>
+            ? <ArrowDropDownIcon style={{float: 'right'}} onClick={() => {buffer[0] = true;setVisible([...buffer])}}/>
+            : <ArrowDropUpIcon style={{float: 'right'}} onClick={() => {buffer[0] = false;setVisible([...buffer])}}/>
             }
             <br /><br />
             {visible[0] == true &&
@@ -31,8 +33,8 @@ const MoreBodyNotice = () => {
 
             <b style={{fontSize: '24px', color: 'coral'}}>Jariyo 오픈 기념 경품 이벤트 당첨자 안내</b>
             {visible[1] == false
-            ? <ArrowDropDownIcon style={{float: 'right'}} onClick={() => {aaa[1] = true;setVisible([...aaa])}}/>
-            : <ArrowDropUpIcon style={{float: 'right'}} onClick={() => {aaa[1] = false;setVisible([...aaa])}}/>
+            ? <ArrowDropDownIcon style={{float: 'right'}} onClick={() => {buffer[1] = true;setVisible([...buffer])}}/>
+            : <ArrowDropUpIcon style={{float: 'right'}} onClick={() => {buffer[1] = false;setVisible([...buffer])}}/>
             }
             <br /><br />
             {visible[1] == true &&

@@ -5,6 +5,8 @@ import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 
 import FAQList from './FAQList';
 
+// FAQ의 개수만큼 false를 default로 하는 Array 생성
+// FAQ를 클릭하면 true로 바뀌어서 content가 보이게끔
 var aaa = Array.from({length: FAQList.length}, () => false);
 
 const QnaBody = () => {

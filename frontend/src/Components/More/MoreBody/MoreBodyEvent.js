@@ -7,6 +7,8 @@ import './MoreBodyEvent.css';
 
 // 공지사항과 이벤트는 정적으로 정의한 페이지임을 알립니다
 
+// 이벤트의 개수만큼 false를 default로 하는 Array 생성
+// 이벤트를 클릭하면 true로 바뀌어서 content가 보이게끔
 const noticeCount = 3
 const aaa = Array.from({length: noticeCount}, () => false);
 

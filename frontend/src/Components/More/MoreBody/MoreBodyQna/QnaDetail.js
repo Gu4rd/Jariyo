@@ -5,13 +5,13 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 const QnaDetail = () => {
     const [myQna, setMyQna] = useState([]);
-
+    
     useEffect(() => {
         axios.get("/qna/test123")
             .then((response) => {
                 setMyQna([...response.data]);
             })
-        }, [])
+    }, [])
 
     return (
         <>

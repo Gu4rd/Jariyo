@@ -11,6 +11,7 @@ const FontCoral = styled.b`
 `
 
 const MoreBodyQna = () => {
+    // Qna메뉴중 선택한 메뉴를 저장. 밑에서 그 메뉴를 FontCoral로 처리
     const [FAQ, setFAQ] = useState('FAQ');
     
     const QnaHead = () => {

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import Form from 'react-bootstrap/Form'
 import axios from "axios";
+import Button from '@material-ui/core/Button';
 
 const QnaWrite = () => {
     const today = new Date();
@@ -14,7 +15,7 @@ const QnaWrite = () => {
         status: 0,
         writeDate: today.getFullYear() + "-" + ("0" + (1 + today.getMonth())).slice(-2) + "-" + ("0" + today.getDate()).slice(-2)
     });
-
+    
     const submitQna = () => {        
         axios.post('/qna/write', qna)
             .then(() => {
@@ -55,9 +56,9 @@ const QnaWrite = () => {
                 </Form.Control>
             </Form.Group>
             <br />
-            <textarea id="content" placeholder="하실 말씀이?" style={{width: "600px", height: "300px", fontSize: '20px'}} onChange={() => {setQna({...qna, content: document.getElementById("content").value})}}></textarea>
+            <textarea id="content" placeholder="문의 내용을 입력해주세요" style={{width: "600px", height: "300px", fontSize: '20px'}} onChange={() => {setQna({...qna, content: document.getElementById("content").value})}}></textarea>
             <br />
-            <button type="button" style={{width: "40px", height: "40px"}} onClick={submitQna}>문의</button>
+            <Button type="button" style={{width: "40px", height: "40px", backgroundColor: 'coral', color: 'white'}} onClick={submitQna}>문의</Button>
         </Form>
     )
 }
