@@ -34,7 +34,7 @@ class NavBar extends Component {
               return (
                 <li key={index}>
                   {item.title == '더 보기'
-                  ? <Link to={item.url} className={item.cName} id="moreView">
+                  ? <Link to={item.url} className={this.state.scrolled ? 'nav-links active' : 'nav-links'} id="moreView">
                       {item.title}
                       <div className="more">
                         {item.more.title.map((write, idx) =>
@@ -42,11 +42,12 @@ class NavBar extends Component {
                         )}
                       </div>
                     </Link>
-                  : <Link to={item.url} className={item.cName}>{item.title}</Link>
+                  : <Link to={item.url} className={this.state.scrolled ? 'nav-links active' : 'nav-links'}>{item.title}</Link>
                   }
                 </li>
               )
             })}
+            <li><Link to='#login' className='nav-links-mobile'>로그인</Link></li>
           </ul>
           <Button>Sign Up</Button>
         </nav>

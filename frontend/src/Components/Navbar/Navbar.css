@@ -9,9 +9,17 @@ a {
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
+    z-index: 4;
 }
 .NavbarItems.active {
     background: #fff;
+}
+.nav-links.active {
+    color: #61DAFB;
+}
+
+.nav-links.active:hover{
+    background-color: #e8faff;
 }
 
 .wrap_nav{
@@ -71,9 +79,11 @@ a {
 @media screen and (max-width: 960px) {
     .NavbarItems {
         position: relative;
+        z-index: 3;
     }
 
     .nav-menu {
+        position: relative;
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -83,6 +93,7 @@ a {
         left: -100%;
         opacity: 1;
         transition: all 0.5s ease;
+        z-index: 2;
     }
 
     .nav-menu.active {
@@ -90,7 +101,7 @@ a {
         left : 0;
         opacity: 1;
         transition: all 0.5s ease;
-        z-index: 1;
+        z-index: 2;
     }
 
     .nav-links {
