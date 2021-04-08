@@ -25,6 +25,9 @@ a {
     text-align: center;
 }
 
+.quick_menu :hover{
+    color: #61DAFB;
+}
 .content_wrap {
     display: flex;
 }
@@ -43,18 +46,12 @@ a {
     float: right;
 }
 
-.each-fade {
+.imgslide {
     display: flex;
     width: 100%;
     align-items: center;
-  }
-  
-  .each-fade > div {
-    width: 99%;
-  }
-  
-  .each-fade > div img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+}
+
+.slideshow{
+    
+}

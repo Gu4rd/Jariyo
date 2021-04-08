@@ -1,8 +1,7 @@
-import React, { Component } from "react";
+import React, { Component , useState , useEffect } from "react";
 import { Container, Grid } from '@material-ui/core';
 import './Body.css';
 import { QuickMenu } from "./QuickMenu";
-import { Fade } from "react-slideshow-image";
 import 'react-slideshow-image/dist/styles.css';
 
 const slideImages = [
@@ -10,10 +9,21 @@ const slideImages = [
     '/static/img/react_mall.jpg',
     '/static/img/finduo.jpg'
 ]
-const properties = {
-    duration: 2000,
-    transitionDuration: 650,
-}
+const delay = 2500;
+
+const [index, setIndex] = useState(0);
+
+useEffect(() => {
+  setTimeout(
+    () =>
+      setIndex((prevIndex) =>
+        prevIndex === slideImages.length - 1 ? 0 : prevIndex + 1
+      ),
+    delay
+  );
+
+  return () => {};
+}, [index]);
 
 class Body extends Component {
     render() {
@@ -67,24 +77,28 @@ class Body extends Component {
 
                             <Grid item xs={12}><br/><br/><h1>다른 프로젝트</h1></Grid><br/>
                             <Grid item xs={12}>
-                                <div className="slide-container">
-                                    <Fade {...properties}>
-                                        <div className="each-fade">
-                                            <div className="image-container">
-                                                <img src={slideImages[0]} alt="No Image"/>
-                                            </div>
-                                        </div>
-                                        <div className="each-fade">
-                                            <div className="image-container">
-                                                <img src={slideImages[1]} alt="No Image"/>
-                                            </div>
-                                        </div>
-                                        <div className="each-fade">
-                                            <div className="image-container">
-                                                <img src={slideImages[2]} alt="No Image"/>
-                                            </div>
-                                        </div>
-                                    </Fade>
+                            <div className="slideshow">
+                                <div
+                                    className="slideshowSlider"
+                                    style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
+                                >
+                                    {slideImages.map((backgroundColor, index) => (
+                                    <div
+                                        className="slide"
+                                        key={index}
+                                        style={{ backgroundColor }}
+                                    ></div>
+                                    ))}
+                                </div>
+
+                                <div className="slideshowDots">
+                                    {slideImages.map((_, idx) => (
+                                    <div
+                                        key={idx}
+                                        className={`slideshowDot${index === idx ? " active" : ""}`}
+                                    ></div>
+                                    ))}
+                                </div>
                                 </div>
                             </Grid>
                         </Grid>
